@@ -1,38 +1,51 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+
+html {
+  font-size: 100%;
+  font-family: 'Inter UI', sans-serif;
+}
+
 .App {
-  text-align: center;
+  width: 62em;
+  margin: 0 auto;
+  padding: 2em 6em 8em;
+  background-color: silver;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 4em;
+  font-weight: 100;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 {
+  font-size: 2em;
+  font-weight: 100;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+p {
+  font-size: 1em;
+  font-weight: normal;
 }
 
-.App-link {
-  color: #61dafb;
+ul {
+  list-style-type: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li {
+  display: inline;
+  margin-right: 1em;
+}
+
+li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.4em;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  text-transform: uppercase;
 }
