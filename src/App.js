@@ -21,7 +21,7 @@ export default function App() {
                             <Link to="/">Me</Link>
                         </li>
                         <li>
-                            <Link to="/report/week/1">Report</Link>
+                            <Link to="/reports/week/1">Reports</Link>
                         </li>
                     </ul>
                 </nav>
@@ -30,7 +30,7 @@ export default function App() {
             renders the first one that matches the current URL. */}
                 <Switch>
                     <Route exact path="/" component={Me}/>
-                    <Route path="/report/week/1" component={Report}/>
+                    <Route path="/reports/week/1" component={Report}/>
                 </Switch>
             </div>
         </Router>

@@ -49,3 +49,9 @@ li a:hover {
 h2 {
   text-transform: uppercase;
 }
+
+.profileImg {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
