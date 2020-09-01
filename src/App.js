@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import Me from './Me.js';
-import Report from './Report.js';
+import Reports from './Reports.js';
 
 import './App.css';
 
@@ -21,7 +21,7 @@ export default function App() {
                             <Link to="/">Me</Link>
                         </li>
                         <li>
-                            <Link to="/reports/week/1">Reports</Link>
+                            <Link to="/reports/">Reports</Link>
                         </li>
                     </ul>
                 </nav>
@@ -30,7 +30,7 @@ export default function App() {
             renders the first one that matches the current URL. */}
                 <Switch>
                     <Route exact path="/" component={Me}/>
-                    <Route path="/reports/week/1" component={Report}/>
+                    <Route path="/reports/" component={Reports}/>
                 </Switch>
             </div>
         </Router>
