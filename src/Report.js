@@ -10,15 +10,15 @@ class Report extends Component {
         };
     }
 
-    // componentDidMount() {
-    //     // console.log(this.props);
-    //     fetch("http://localhost:1337/reports/week/" + this.props.match.params.number)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             this.setState({ data: data.data.text});
-    //             console.log(this.state.data);
-    //         });
-    // };
+    componentDidMount() {
+        // console.log(this.props);
+        fetch("http://localhost:1337/reports/week/" + this.props.match.params.number)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ data: data.data.text});
+                console.log(this.state.data);
+            });
+    };
 
     componentDidUpdate(prevProps) {
         if(prevProps.match.params.number !== this.props.match.params.number) {
