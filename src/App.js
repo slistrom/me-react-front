@@ -8,6 +8,9 @@ import {
 
 import Me from './Me.js';
 import Reports from './Reports.js';
+import Login from './Login.js';
+import Register from './Register.js';
+
 
 import './App.css';
 
@@ -23,6 +26,9 @@ export default function App() {
                         <li>
                             <Link to="/reports/">Reports</Link>
                         </li>
+                        <li>
+                            <Link to="/login/">Login</Link>
+                        </li>
                     </ul>
                 </nav>
 
@@ -31,6 +37,8 @@ export default function App() {
                 <Switch>
                     <Route exact path="/" component={Me}/>
                     <Route path="/reports/" component={Reports}/>
+                    <Route path="/login/" component={Login}/>
+                    <Route path="/register/" component={Register}/>
                 </Switch>
             </div>
         </Router>
