@@ -54,21 +54,21 @@ test.describe("Me-page", function() {
 
 
     // Test case
-    test.it("Test index", function(done) {
-        // let promise = browser.getTitle();
-        //
-        // promise.then(function(title) {
-        //     assert.strictEqual(title, "My me-page jsramverk");
-        // });
-
-        browser.getTitle().then(function(title) {
-            assert.equal(title, "My me-page jsramverk");
-        });
-
-        // assertH1("My jsramverk me-page");
-
-        done();
-    });
+    // test.it("Test index", function(done) {
+    //     // let promise = browser.getTitle();
+    //     //
+    //     // promise.then(function(title) {
+    //     //     assert.strictEqual(title, "My me-page jsramverk");
+    //     // });
+    //
+    //     browser.getTitle().then(function(title) {
+    //         assert.equal(title, "My me-page jsramverk");
+    //     });
+    //
+    //     // assertH1("My jsramverk me-page");
+    //
+    //     done();
+    // });
 
 
 
