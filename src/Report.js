@@ -14,7 +14,7 @@ class Report extends Component {
 
     componentDidMount() {
         // console.log(this.props);
-        fetch("http://localhost:1337/reports/week/" + this.props.match.params.number)
+        fetch("https://me-api.listrom.me/reports/week/" + this.props.match.params.number)
             .then(response => response.json())
             .then(data => {
                 this.setState({ data: data.data.text});
@@ -24,7 +24,7 @@ class Report extends Component {
 
     componentDidUpdate(prevProps) {
         if(prevProps.match.params.number !== this.props.match.params.number) {
-            fetch("http://localhost:1337/reports/week/" + this.props.match.params.number)
+            fetch("https://me-api.listrom.me/reports/week/" + this.props.match.params.number)
                 .then(response => response.json())
                 .then(data => {
                     this.setState({ data: data.data.text});

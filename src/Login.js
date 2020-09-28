@@ -15,7 +15,7 @@ class Login extends Component {
 
     mySubmitHandler = (event) => {
         event.preventDefault();
-        const API = 'http://localhost:1337/login/';
+        const API = 'https://me-api.listrom.me/login/';
         let payload={
             "email":this.state.email,
             "password":this.state.pass
@@ -78,7 +78,7 @@ class Login extends Component {
                     />
                 </form>
                 <p></p>
-                <Link className='button' to="/register/">Register new user</Link>
+                {/*<Link className='button' to="/register/">Register new user</Link>*/}
             </main>
         );
     }

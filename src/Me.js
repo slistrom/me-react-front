@@ -8,7 +8,7 @@ class Me extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:1337")
+        fetch("https://me-api.listrom.me")
             .then(response => response.json())
             .then(data => {
                 this.setState({ data: data.data.msg});

@@ -15,7 +15,7 @@ class ReportEdit extends Component {
 
     componentDidMount() {
         // console.log(this.props);
-        fetch("http://localhost:1337/reports/week/" + this.props.match.params.number)
+        fetch("https://me-api.listrom.me/reports/week/" + this.props.match.params.number)
             .then(response => response.json())
             .then(data => {
                 this.setState({ text: data.data.text});
@@ -26,7 +26,7 @@ class ReportEdit extends Component {
 
     mySubmitHandler = (event) => {
         event.preventDefault();
-        const API = 'http://localhost:1337/reports/';
+        const API = 'https://me-api.listrom.me/reports/';
         let payload={
             "text":this.state.text,
             "week":this.state.week
