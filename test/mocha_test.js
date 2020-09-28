@@ -12,12 +12,32 @@ const By = webdriver.By;
 
 let browser;
 
+function goToNavLink(target) {
+    browser.findElement(By.linkText(target)).then(function(element) {
+        element.click();
+    });
+}
 
+function matchUrl(target) {
+    browser.getCurrentUrl().then(function(url) {
+        assert.ok(url.endsWith("/" + target));
+    });
+}
+
+function assertH1(target) {
+    browser.findElement(By.css("h1")).then(function(element) {
+        element.getText().then(function(text) {
+            assert.equal(text, target);
+        });
+    });
+}
 
 // Test suite
 test.describe("Me-page", function() {
-    test.beforeEach(function(done) {
-        this.timeout(20000);
+
+    this.timeout(0);
+
+    beforeEach(function(done) {
         browser = new webdriver.Builder().
         withCapabilities(webdriver.Capabilities.firefox()).build();
 
@@ -25,50 +45,28 @@ test.describe("Me-page", function() {
         done();
     });
 
-    test.afterEach(function(done) {
+    afterEach(function(done) {
         browser.quit();
         done();
     });
 
 
-    function goToNavLink(target) {
-        browser.findElement(By.linkText(target)).then(function(element) {
-            element.click();
-        });
-    }
-
-    function matchUrl(target) {
-        browser.getCurrentUrl().then(function(url) {
-            assert.ok(url.endsWith("/" + target));
-        });
-    }
-
-    function assertH1(target) {
-        browser.findElement(By.css("h1")).then(function(element) {
-            element.getText().then(function(text) {
-                assert.equal(text, target);
-            });
-        });
-    }
-
-
-
     // Test case
-    // test.it("Test index", function(done) {
-    //     // let promise = browser.getTitle();
-    //     //
-    //     // promise.then(function(title) {
-    //     //     assert.strictEqual(title, "My me-page jsramverk");
-    //     // });
-    //
-    //     browser.getTitle().then(function(title) {
-    //         assert.equal(title, "My me-page jsramverk");
-    //     });
-    //
-    //     // assertH1("My jsramverk me-page");
-    //
-    //     done();
-    // });
+    test.it("Test index", function(done) {
+        // let promise = browser.getTitle();
+        //
+        // promise.then(function(title) {
+        //     assert.strictEqual(title, "My me-page jsramverk");
+        // });
+
+        browser.getTitle().then(function(title) {
+            assert.equal(title, "My me-page jsramverk");
+        });
+
+        // assertH1("My jsramverk me-page");
+
+        done();
+    });
 
 
 
