@@ -33,7 +33,6 @@ test.describe("Me-page", function() {
     this.timeout(0);
 
     beforeEach(function(done) {
-        // this.timeout(20000);
         browser = new webdriver.Builder()
             .withCapabilities(webdriver.Capabilities.firefox())
             .setFirefoxOptions(new firefox.Options().headless())
