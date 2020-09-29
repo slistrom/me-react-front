@@ -9,10 +9,9 @@ git:
 
 before_script:
   - npm install
-  - npm start
 
 script:
-  - npm test
+  - npm run ci
 
 after_success:
   - npm run report-coveralls
