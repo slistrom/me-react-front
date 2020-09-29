@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/slistrom/me-react-front.svg?branch=master)](https://travis-ci.org/slistrom/me-react-front)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/slistrom/me-react-front/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/slistrom/me-react-front/?branch=master)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
