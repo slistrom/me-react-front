@@ -48,7 +48,7 @@ test.describe("Me-page", function() {
             .forBrowser('firefox')
             .build();
 
-        browser.get("http://localhost:3000/");
+        browser.get("https://listrom.me/");
         done();
     });
 
