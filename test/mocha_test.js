@@ -26,6 +26,13 @@ function matchUrl(target) {
     });
 }
 
+function assertH3(target) {
+    browser.findElement(By.css("h3")).then(function(element) {
+        element.getText().then(function(text) {
+            assert.equal(text, target);
+        });
+    });
+}
 
 // Test suite
 test.describe("Me-page", function() {
@@ -50,7 +57,7 @@ test.describe("Me-page", function() {
     });
 
 
-    // Test case
+    // Usecase 1
     test.it("Test index", function(done) {
 
         browser.getTitle().then(function(title) {
@@ -61,22 +68,25 @@ test.describe("Me-page", function() {
     });
 
 
-
+    // Usecase 2
     test.it("Test go to Reports", function(done) {
         // try use nav link
         goToNavLink("Reports");
+        goToNavLink("Kmom 1");
 
-        matchUrl("reports/" );
+        matchUrl("reports/week/1" );
+        assertH3("Kmom 1");
 
         done();
     });
 
 
-
+    // Usecase 3
     test.it("Test go to Login", function(done) {
         goToNavLink("Login");
 
         matchUrl("login/");
+        assertH3("Login");
 
         done();
     });
