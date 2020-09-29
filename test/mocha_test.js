@@ -8,9 +8,11 @@
 const assert = require("assert");
 const test = require("selenium-webdriver/testing");
 const webdriver = require("selenium-webdriver");
+const firefox = require('selenium-webdriver/firefox');
 const By = webdriver.By;
 
 let browser;
+
 
 function goToNavLink(target) {
     browser.findElement(By.linkText(target)).then(function(element) {
@@ -32,14 +34,19 @@ function assertH1(target) {
     });
 }
 
+
+
 // Test suite
 test.describe("Me-page", function() {
 
     this.timeout(0);
 
     beforeEach(function(done) {
-        browser = new webdriver.Builder().
-        withCapabilities(webdriver.Capabilities.firefox()).build();
+        browser = new webdriver.Builder()
+            .withCapabilities(webdriver.Capabilities.firefox())
+            .setFirefoxOptions(new firefox.Options().headless())
+            .forBrowser('firefox')
+            .build();
 
         browser.get("http://localhost:3000/");
         done();
@@ -53,17 +60,18 @@ test.describe("Me-page", function() {
 
     // Test case
     test.it("Test index", function(done) {
-        // let promise = browser.getTitle();
-        //
-        // promise.then(function(title) {
-        //     assert.strictEqual(title, "My me-page jsramverk");
-        // });
+        let promise = browser.getTitle();
+
+        promise.then(function(title) {
+            assert.equal(title, "My me-page jsramverk");
+        });
 
         browser.getTitle().then(function(title) {
             assert.equal(title, "My me-page jsramverk");
         });
 
-        // assertH1("My jsramverk me-page");
+        // assertH1("Home");
+        // matchUrl("#!/");
 
         done();
     });
@@ -74,7 +82,7 @@ test.describe("Me-page", function() {
         // try use nav link
         goToNavLink("Reports");
 
-        // assertH1("Reports");
+        // assertH1("Home");
         matchUrl("reports/" );
 
         done();
@@ -93,6 +101,16 @@ test.describe("Me-page", function() {
     });
 
 
+
+    // test.it("Test go to Calculator", function(done) {
+    //     goToNavLink("Calculator");
+    //
+    //     // get h1 text
+    //     assertH1("Calculator");
+    //     matchUrl("#!/calculator");
+    //
+    //     done();
+    // });
 
 
 
@@ -121,7 +139,7 @@ test.describe("Me-page", function() {
     // });
 
 
-
+    //
     // test.it("Test an addition calculation", function(done) {
     //     goToNavLink("Calculator");
     //
