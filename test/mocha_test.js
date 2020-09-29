@@ -30,7 +30,7 @@ function matchUrl(target) {
 // Test suite
 test.describe("Me-page", function() {
 
-    // this.timeout(20000);
+    this.timeout(0);
 
     beforeEach(function(done) {
         // this.timeout(20000);
