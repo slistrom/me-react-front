@@ -8,6 +8,7 @@ import {
 
 import Me from './Me.js';
 import Reports from './Reports.js';
+import Chat from './Chat.js';
 import Login from './Login.js';
 import Register from './Register.js';
 
@@ -27,6 +28,9 @@ export default function App() {
                             <Link to="/reports/">Reports</Link>
                         </li>
                         <li>
+                            <Link to="/chat/">Chat</Link>
+                        </li>
+                        <li>
                             <Link to="/login/">Login</Link>
                         </li>
                     </ul>
@@ -37,6 +41,7 @@ export default function App() {
                 <Switch>
                     <Route exact path="/" component={Me}/>
                     <Route path="/reports/" component={Reports}/>
+                    <Route path="/chat/" component={Chat}/>
                     <Route path="/login/" component={Login}/>
                     <Route path="/register/" component={Register}/>
                 </Switch>
