@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
 
+
 class Chat extends Component {
 
     constructor() {
         super();
         this.state = {
             history: [],
+            log: [],
             latestChat: [],
             msg: "",
             tmpNick: "",
@@ -33,9 +35,11 @@ class Chat extends Component {
     }
 
     sendMessage = () => {
-        let message = this.state.userNick + ": " + this.state.msg;
-        this.socket.emit('chat message', message);
-        this.setState({msg: ""});
+        if (this.state.msg !== "") {
+            let message = this.state.userNick + ": " + this.state.msg;
+            this.socket.emit('chat message', message);
+            this.setState({msg: ""});
+        }
     }
 
     componentDidMount() {
@@ -51,6 +55,24 @@ class Chat extends Component {
         const updateChat = message => {
             this.setState({ history: [...this.state.history, message] });
         }
+        fetch("https://socket-server.listrom.me/chatlog/")
+            .then(response => response.json())
+            .then(data => {
+                // this.setState({ data: data.data.text});
+                // console.log(data);
+                for (let key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        this.setState({ log: [...this.state.log, data[key].message] });
+                        // console.log(key + " -> " + data[key].message);
+                        // console.log(this.state.log);
+                    }
+                }
+            });
+    }
+
+    scrollChat() {
+        let chatwindow = document.getElementById("all-messages");
+        chatwindow.scrollTop = chatwindow.scrollHeight;
     }
 
     componentDidUpdate() {
@@ -58,6 +80,10 @@ class Chat extends Component {
             let chatwindow = document.getElementById("all-messages");
             chatwindow.scrollTop = chatwindow.scrollHeight;
         }
+    }
+
+    componentWillUnmount() {
+        this.socket.disconnect();
     }
 
     render() {
@@ -80,6 +106,9 @@ class Chat extends Component {
                     <div
                         id="all-messages"
                         className="all-messages">
+                        {this.state.log.map(item => (
+                            <p key={item}>{item}</p>
+                        ))}
                         {this.state.history.map(item => (
                             <p key={item}>{item}</p>
                         ))}
@@ -99,9 +128,6 @@ class Chat extends Component {
                     Send
                     </button>
                     <br />
-
-
-
                 </main>
             );
         }
